@@ -18,6 +18,9 @@ public class Main {
         //System.out.println(a.binarySearch(iArray, 2));
         //System.out.println(a.binarySearch(iArray, 7));
         //System.out.println(a.binarySearch(iArray, -1));
-        System.out.println(a.binarySearch(iArray, 8));
+        //System.out.println(a.binarySearch(iArray, 8));
+        Integer[] iA = {5, 1, 7, 2, 3, 6};
+        a.selectionSort(iA);
+        for(int i: iA) { System.out.println(i); }
     }
 }

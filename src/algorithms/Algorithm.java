@@ -6,6 +6,8 @@
 package algorithms;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <h1>Algorithms in Java</h1>
@@ -37,6 +39,27 @@ public class Algorithm {
             else { start = mid + 1; }
             return binarySearch(iA, i, start, end);
         }
+    }
+    
+    
+    /**
+     * This method is used to organize an array of integers
+     * from smallest to largest.
+     * @param array An unsorted array of integers.
+    */
+    public void selectionSort(Integer[] array) {
+        Map<Integer, Integer> hm = new HashMap();
+        for(int i: array) { hm.put(i, i); }
+        for(int i = 0; array.length > i; i++) {
+            array[i] = findSmallest(hm);
+        }
+    }
+    
+    private int findSmallest(Map<Integer, Integer> m) {
+        int min = m.values().stream().findFirst().get();
+        for (Integer val : m.values()) { min = min > val ? val : min; }
+        m.remove(min);
+        return min;
     }
     
 }
