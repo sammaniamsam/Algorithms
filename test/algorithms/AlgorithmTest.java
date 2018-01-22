@@ -45,7 +45,7 @@ public class AlgorithmTest {
      * Test of selectionSort method, of class Algorithm.
      */
     @Test
-    public void selectionSort() {
+    public void testSelectionSort() {
         System.out.println("selectionSort");
         //Positive Array
         Integer[] iArray1 = {6, 1, 2, 5};
@@ -57,6 +57,19 @@ public class AlgorithmTest {
         Integer[] equals2 = {-6, -5, -2, -1};
         algorithm.selectionSort(iArray2);
         assertTrue(Arrays.equals(iArray2, equals2));
+    }
+    
+    /**
+     * Test of euclidsAlgorithm method, of class Algorithm.
+     */
+    @Test
+    public void testEuclidsAlgorithm() {
+        //Greatest factor of two sides
+        assertEquals(algorithm.euclidsAlgorithm(1680, 640), 80);
+        //Base case hit first
+        assertEquals(algorithm.euclidsAlgorithm(105, 35), 35);
+        //Smallest positive whole number
+        assertEquals(algorithm.euclidsAlgorithm(113, 4), 1);
     }
     
 }

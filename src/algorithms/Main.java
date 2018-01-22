@@ -21,6 +21,8 @@ public class Main {
         //System.out.println(a.binarySearch(iArray, 8));
         Integer[] iA = {5, 1, 7, 2, 3, 6};
         a.selectionSort(iA);
-        for(int i: iA) { System.out.println(i); }
+        //for(int i: iA) { System.out.println(i); }
+        System.out.println(a.euclidsAlgorithm(105, 35));
+        System.out.println(a.euclidsAlgorithm(113, 4));
     }
 }

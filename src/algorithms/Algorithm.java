@@ -21,7 +21,8 @@ public class Algorithm {
      * array.
      * @param array An unsorted array of integers.
      * @param item Integer that will be located.
-     * @return int This returns the position for item or -1 if item is not found.
+     * @return int This returns the position for item or -1
+     * if item is not found.
     */
     public int binarySearch(int[] array, int item) {
         Arrays.sort(array);
@@ -41,7 +42,6 @@ public class Algorithm {
         }
     }
     
-    
     /**
      * This method is used to organize an array of integers
      * from smallest to largest.
@@ -60,6 +60,25 @@ public class Algorithm {
         for (Integer val : m.values()) { min = min > val ? val : min; }
         m.remove(min);
         return min;
+    }
+    
+    /**
+     * This method divides a space, that has sides a
+     * and b, evenly into the biggest square plots that
+     * can be formed.
+     * @param a Side of space
+     * @param b Side of space
+     * @return int Side of biggest square that the space can
+     * be evenly divided into.
+    */
+    public int euclidsAlgorithm(int a, int b) {
+        if((a % b == 0) || (b % a == 0)) {
+            int rVal = b > a ? a : b;
+            return rVal;
+        } else {
+            if(a > b) { return euclidsAlgorithm(a - b, b); }
+            else { return euclidsAlgorithm(a, b - a); }
+        }
     }
     
 }
