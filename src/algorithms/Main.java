@@ -24,5 +24,6 @@ public class Main {
         //for(int i: iA) { System.out.println(i); }
         System.out.println(a.euclidsAlgorithm(105, 35));
         System.out.println(a.euclidsAlgorithm(113, 4));
+        System.out.println(a.getTotal(iArray));
     }
 }

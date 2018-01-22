@@ -81,4 +81,14 @@ public class Algorithm {
         }
     }
     
+    
+    public int getTotal(int[] iA) {
+        return getTotal(iA, iA.length);
+    }
+    
+    private int getTotal(int[] iA, int size) {
+        if(size > 0) {
+            return iA[size-1] + getTotal(iA, size - 1);
+        } else { return 0; }
+    }
 }
