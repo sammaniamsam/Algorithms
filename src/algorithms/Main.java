@@ -13,17 +13,13 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        int[] iArray = {1, 2, 3, 4, 5, 6, 7};
+        int[] iArray = {3,1};
+        int x = iArray[0];
+        System.out.println(x);
         Algorithm a = new Algorithm();
-        //System.out.println(a.binarySearch(iArray, 2));
-        //System.out.println(a.binarySearch(iArray, 7));
-        //System.out.println(a.binarySearch(iArray, -1));
-        //System.out.println(a.binarySearch(iArray, 8));
-        Integer[] iA = {5, 1, 7, 2, 3, 6};
-        a.selectionSort(iA);
-        //for(int i: iA) { System.out.println(i); }
-        System.out.println(a.euclidsAlgorithm(105, 35));
-        System.out.println(a.euclidsAlgorithm(113, 4));
-        System.out.println(a.getTotal(iArray));
+        a.quicksort(iArray);
+        for(int i: iArray) { System.out.println(i); }
+        System.out.println(x);
+        
     }
 }

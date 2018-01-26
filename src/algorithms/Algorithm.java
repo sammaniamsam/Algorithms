@@ -91,4 +91,40 @@ public class Algorithm {
             return iA[size-1] + getTotal(iA, size - 1);
         } else { return 0; }
     }
+    
+    public void quicksort(int[] iA) {
+        quicksort(iA, 0, iA.length - 1);
+    }
+    
+    private void quicksort(int[] iA, int head, int tail) {
+        //if 2 or fewer elms in array
+        if(tail - head < 2) {
+            if(tail - head > 0) {
+                if(iA[head] > iA[tail]) { swapHeadAndTail(iA, head, tail); }
+            }
+            return;
+        }
+        int pivot = iA[ (head + tail) / 2];
+        while(head < tail) {
+            if(iA[head] > pivot) {
+                //both start and end are greater than mid
+                if(iA[tail] > pivot) { --tail; }
+                //start, but not end, is greater than mid
+                else { swapHeadAndTail(iA, head, tail); ++head; }
+            } else if(iA[tail] < pivot) {
+                //both end and start are less than mid
+                if(iA[head] < pivot) { ++head; }
+                //end, but not start, is less than mid
+                else { swapHeadAndTail(iA, head, tail); --tail; }
+            } else { ++head; --tail; }
+        }
+        quicksort(iA, 0, head - 1);
+        quicksort(iA, head + 1, iA.length - 1);
+    }
+    
+    private void swapHeadAndTail(int[] iA, int head, int tail) {
+        int temp = iA[head];
+        iA[head] = iA[tail];
+        iA[tail] = temp;
+    }
 }
