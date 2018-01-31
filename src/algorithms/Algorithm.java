@@ -101,14 +101,11 @@ public class Algorithm {
      * @param iA Unsorted array of integers
     */
     public void quicksort(int[] iA) {
-        quicksort(iA, 0, iA.length);
+        quicksort(iA, 0, iA.length - 1);
     }
     
     private void quicksort(int[] iA, int head, int tail) {
-<<<<<<< HEAD
         //base case
-=======
->>>>>>> 1337e2c9647b39781ce6d602b0b4a971ee514ccf
         if(tail > head) {
             int pivot = partition(iA, head, tail);
             quicksort(iA, head, pivot - 1);
@@ -116,7 +113,6 @@ public class Algorithm {
         }
     }
     
-<<<<<<< HEAD
     private int partition(int[] iA, int head, int tail) {
         Random rand = new Random();
         int pivot = rand.nextInt(tail) + 0;
@@ -139,19 +135,6 @@ public class Algorithm {
         }
         return pivot;
     }
-=======
-    /*private int partition(int[] iA, int head, int tail) {
-        int start = head, end = tail;
-        int pivot = head;
-        head = head + 1;
-        while(head < tail) {
-            if(iA[head] <= pivot) {
-                
-            }
-        }
-        
-    }*/
->>>>>>> 1337e2c9647b39781ce6d602b0b4a971ee514ccf
     
     private void swap(int[] iA, int a, int b) {
         int temp = iA[a];

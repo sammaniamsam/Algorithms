@@ -7,7 +7,6 @@ package algorithms;
 
 import java.util.Arrays;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -34,11 +33,12 @@ public class AlgorithmTest {
     }
     
     private void assertBinarySearchWorks(int[] iA) {
-        assertEquals(algorithm.binarySearch(iA, 2), 1);
-        assertEquals(algorithm.binarySearch(iA, 4), 3);
-        assertEquals(algorithm.binarySearch(iA, 7), 6);
-        assertEquals(algorithm.binarySearch(iA, 10), -1);
-        assertEquals(algorithm.binarySearch(iA, 0), -1);
+        org.junit.Assert.assertEquals(1, algorithm.binarySearch(iA, 2));
+        org.junit.Assert.assertEquals(1, algorithm.binarySearch(iA, 2));
+        org.junit.Assert.assertEquals(3, algorithm.binarySearch(iA, 4));
+        org.junit.Assert.assertEquals(6, algorithm.binarySearch(iA, 7));
+        org.junit.Assert.assertEquals(-1, algorithm.binarySearch(iA, 10));
+        org.junit.Assert.assertEquals(-1, algorithm.binarySearch(iA, 0));
     }
     
     /**
@@ -51,12 +51,12 @@ public class AlgorithmTest {
         Integer[] iArray1 = {6, 1, 2, 5};
         Integer[] equals1 = {1, 2, 5, 6};
         algorithm.selectionSort(iArray1);
-        assertTrue(Arrays.equals(iArray1, equals1));
+        assert(Arrays.equals(iArray1, equals1));
         //Negative Array
         Integer[] iArray2 = {-6, -1, -2, -5};
         Integer[] equals2 = {-6, -5, -2, -1};
         algorithm.selectionSort(iArray2);
-        assertTrue(Arrays.equals(iArray2, equals2));
+        assert(Arrays.equals(iArray2, equals2));
     }
     
     /**
@@ -65,11 +65,11 @@ public class AlgorithmTest {
     @Test
     public void testEuclidsAlgorithm() {
         //Greatest factor of two sides
-        assertEquals(algorithm.euclidsAlgorithm(1680, 640), 80);
+        org.junit.Assert.assertEquals(80, algorithm.euclidsAlgorithm(1680, 640));
         //Base case hit first
-        assertEquals(algorithm.euclidsAlgorithm(105, 35), 35);
+        org.junit.Assert.assertEquals(35, algorithm.euclidsAlgorithm(105, 35));
         //Smallest positive whole number
-        assertEquals(algorithm.euclidsAlgorithm(113, 4), 1);
+        org.junit.Assert.assertEquals(1, algorithm.euclidsAlgorithm(113, 4));
     }
     
     /**
@@ -81,18 +81,18 @@ public class AlgorithmTest {
         int[] array1 = {5, 2, 3, 1, 7};
         int[] equals1 = {1, 2, 3, 5, 7};
         algorithm.quicksort(array1);
-        assertTrue(Arrays.equals(array1, equals1));
+        assert(Arrays.equals(array1, equals1));
         System.out.println("\n\n");
         //Array length is even
         int[] array2 = {3, 5, 1, 2, 7, 6};
         int[] equals2 = {1, 2, 3, 5, 6, 7};
         algorithm.quicksort(array2);
-        assertTrue(Arrays.equals(array2, equals2));
+        assert(Arrays.equals(array2, equals2));
         //Arra has duplicates
         int[] array3 = {1, 2, 0, 1, 3, 8, 5, 3, 7, 0};
         int[] equals3 = {0, 0, 1, 1, 2, 3, 3, 5, 7, 8};
         algorithm.quicksort(array3);
-        assertTrue(Arrays.equals(array3, equals3));
+        assert(Arrays.equals(array3, equals3));
     }
     
 }
