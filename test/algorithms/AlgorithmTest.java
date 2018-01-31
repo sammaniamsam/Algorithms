@@ -78,15 +78,21 @@ public class AlgorithmTest {
     @Test
     public void testQuickSort() {
         //Array length is odd
-        /*int[] array1 = {5, 2, 3, 1, 7};
+        int[] array1 = {5, 2, 3, 1, 7};
         int[] equals1 = {1, 2, 3, 5, 7};
         algorithm.quicksort(array1);
-        assertTrue(Arrays.equals(array1, equals1));*/
+        assertTrue(Arrays.equals(array1, equals1));
+        System.out.println("\n\n");
         //Array length is even
         int[] array2 = {3, 5, 1, 2, 7, 6};
         int[] equals2 = {1, 2, 3, 5, 6, 7};
         algorithm.quicksort(array2);
         assertTrue(Arrays.equals(array2, equals2));
+        //Arra has duplicates
+        int[] array3 = {1, 2, 0, 1, 3, 8, 5, 3, 7, 0};
+        int[] equals3 = {0, 0, 1, 1, 2, 3, 3, 5, 7, 8};
+        algorithm.quicksort(array3);
+        assertTrue(Arrays.equals(array3, equals3));
     }
     
 }

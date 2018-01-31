@@ -8,6 +8,7 @@ package algorithms;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * <h1>Algorithms in Java</h1>
@@ -92,39 +93,52 @@ public class Algorithm {
         } else { return 0; }
     }
     
+    /**
+     * This method takes an unsorted array of integers and
+     * sorts that array using quicksort.
+     * Average Case: O(nlogn)
+     * Worst Case: O(n^2)
+     * @param iA Unsorted array of integers
+    */
     public void quicksort(int[] iA) {
         quicksort(iA, 0, iA.length - 1);
     }
     
     private void quicksort(int[] iA, int head, int tail) {
-        //if 2 or fewer elms in array
-        if(tail - head < 2) {
-            if(tail - head > 0) {
-                if(iA[head] > iA[tail]) { swapHeadAndTail(iA, head, tail); }
-            }
-            return;
+        //base case
+        if(tail > head) {
+            int pivot = partition(iA, head, tail);
+            quicksort(iA, head, pivot - 1);
+            quicksort(iA, pivot + 1, tail);
         }
-        int pivot = iA[ (head + tail) / 2];
-        while(head < tail) {
-            if(iA[head] > pivot) {
-                //both start and end are greater than mid
-                if(iA[tail] > pivot) { --tail; }
-                //start, but not end, is greater than mid
-                else { swapHeadAndTail(iA, head, tail); ++head; }
-            } else if(iA[tail] < pivot) {
-                //both end and start are less than mid
-                if(iA[head] < pivot) { ++head; }
-                //end, but not start, is less than mid
-                else { swapHeadAndTail(iA, head, tail); --tail; }
-            } else { ++head; --tail; }
-        }
-        quicksort(iA, 0, head - 1);
-        quicksort(iA, head + 1, iA.length - 1);
     }
     
-    private void swapHeadAndTail(int[] iA, int head, int tail) {
-        int temp = iA[head];
-        iA[head] = iA[tail];
-        iA[tail] = temp;
+    private int partition(int[] iA, int head, int tail) {
+        Random rand = new Random();
+        int pivot = rand.nextInt(tail) + 0;
+        while(tail > head) {
+            while(iA[head] < iA[pivot]) { ++head; }
+            while(iA[tail] > iA[pivot]) { --tail; }
+            if(tail > head) {
+                if(head == pivot) {
+                    swap(iA, head, tail);
+                    pivot = tail;
+                    ++head;
+                }
+                else if(tail == pivot) {
+                    swap(iA, head, tail);
+                    pivot = head;
+                    --tail;
+                }
+                else { swap(iA, head, tail); }
+            }
+        }
+        return pivot;
+    }
+    
+    private void swap(int[] iA, int a, int b) {
+        int temp = iA[a];
+        iA[a] = iA[b];
+        iA[b] = temp;
     }
 }
