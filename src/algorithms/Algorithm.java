@@ -43,46 +43,6 @@ public class Algorithm {
         }
     }
     
-    /**
-     * This method is used to organize an array of integers
-     * from smallest to largest.
-     * @param array An unsorted array of integers.
-    */
-    public void selectionSort(Integer[] array) {
-        Map<Integer, Integer> hm = new HashMap();
-        for(int i: array) { hm.put(i, i); }
-        for(int i = 0; array.length > i; i++) {
-            array[i] = findSmallest(hm);
-        }
-    }
-    
-    private int findSmallest(Map<Integer, Integer> m) {
-        int min = m.values().stream().findFirst().get();
-        for (Integer val : m.values()) { min = min > val ? val : min; }
-        m.remove(min);
-        return min;
-    }
-    
-    /**
-     * This method divides a space, that has sides a
-     * and b, evenly into the biggest square plots that
-     * can be formed.
-     * @param a Side of space
-     * @param b Side of space
-     * @return int Side of biggest square that the space can
-     * be evenly divided into.
-    */
-    public int euclidsAlgorithm(int a, int b) {
-        if((a % b == 0) || (b % a == 0)) {
-            int rVal = b > a ? a : b;
-            return rVal;
-        } else {
-            if(a > b) { return euclidsAlgorithm(a - b, b); }
-            else { return euclidsAlgorithm(a, b - a); }
-        }
-    }
-    
-    
     public int getTotal(int[] iA) {
         return getTotal(iA, iA.length);
     }
@@ -93,52 +53,4 @@ public class Algorithm {
         } else { return 0; }
     }
     
-    /**
-     * This method takes an unsorted array of integers and
-     * sorts that array using quicksort.
-     * Average Case: O(nlogn)
-     * Worst Case: O(n^2)
-     * @param iA Unsorted array of integers
-    */
-    public void quicksort(int[] iA) {
-        quicksort(iA, 0, iA.length - 1);
-    }
-    
-    private void quicksort(int[] iA, int head, int tail) {
-        //base case
-        if(tail > head) {
-            int pivot = partition(iA, head, tail);
-            quicksort(iA, head, pivot - 1);
-            quicksort(iA, pivot + 1, tail);
-        }
-    }
-    
-    private int partition(int[] iA, int head, int tail) {
-        Random rand = new Random();
-        int pivot = rand.nextInt(tail) + 0;
-        while(tail > head) {
-            while(iA[head] < iA[pivot]) { ++head; }
-            while(iA[tail] > iA[pivot]) { --tail; }
-            if(tail > head) {
-                if(head == pivot) {
-                    swap(iA, head, tail);
-                    pivot = tail;
-                    ++head;
-                }
-                else if(tail == pivot) {
-                    swap(iA, head, tail);
-                    pivot = head;
-                    --tail;
-                }
-                else { swap(iA, head, tail); }
-            }
-        }
-        return pivot;
-    }
-    
-    private void swap(int[] iA, int a, int b) {
-        int temp = iA[a];
-        iA[a] = iA[b];
-        iA[b] = temp;
-    }
 }
