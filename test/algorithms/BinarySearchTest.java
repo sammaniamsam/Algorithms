@@ -5,21 +5,20 @@
  */
 package algorithms;
 
-import java.util.Arrays;
 import org.junit.Test;
 
 /**
  *
  * @author Sam Man
  */
-public class AlgorithmTest {
+public class BinarySearchTest {
     
-    private Algorithm algorithm;
+    private BinarySearch bs;
     
-    public AlgorithmTest() { algorithm = new Algorithm(); }
+    public BinarySearchTest() { bs = new BinarySearch(); }
 
     /**
-     * Test of binarySearch method, of class Algorithm.
+     * Test of binarySearch method, of class BinarySearch.
      */
     @Test
     public void testBinarySearch() {
@@ -33,12 +32,12 @@ public class AlgorithmTest {
     }
     
     private void assertBinarySearchWorks(int[] iA) {
-        org.junit.Assert.assertEquals(1, algorithm.binarySearch(iA, 2));
-        org.junit.Assert.assertEquals(1, algorithm.binarySearch(iA, 2));
-        org.junit.Assert.assertEquals(3, algorithm.binarySearch(iA, 4));
-        org.junit.Assert.assertEquals(6, algorithm.binarySearch(iA, 7));
-        org.junit.Assert.assertEquals(-1, algorithm.binarySearch(iA, 10));
-        org.junit.Assert.assertEquals(-1, algorithm.binarySearch(iA, 0));
+        org.junit.Assert.assertEquals(1, this.bs.search(iA, 2));
+        org.junit.Assert.assertEquals(1, this.bs.search(iA, 2));
+        org.junit.Assert.assertEquals(3, this.bs.search(iA, 4));
+        org.junit.Assert.assertEquals(6, this.bs.search(iA, 7));
+        org.junit.Assert.assertEquals(-1, this.bs.search(iA, 10));
+        org.junit.Assert.assertEquals(-1, this.bs.search(iA, 0));
     }
     
 }
