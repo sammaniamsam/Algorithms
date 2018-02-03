@@ -10,6 +10,7 @@ package algorithms;
  * @author Sam Man
  */
 public class Main {
+    
     public static void main(String[] args) {
         //Run algroithms from here :)
     }
