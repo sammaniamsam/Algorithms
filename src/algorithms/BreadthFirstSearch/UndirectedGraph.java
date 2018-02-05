@@ -15,6 +15,16 @@ import java.util.Map;
  */
 public class UndirectedGraph {
     
+    /**
+     * This method is used to find the shortest path from
+     * the start vertex to the target vertex using breadth
+     * first search.
+     * Runtime: O(V + E) -- V is Verticies, E is Edges
+     * @param start Vertex at which you will start from.
+     * @param target Vertex you are searching for.
+     * @return int This is the number of edges between the start and
+     * target verticies.
+    */
     public static int search(Vertex start, Vertex target) {
         LinkedList<Vertex> queue = new LinkedList();
         Map<String, Vertex> searchedVerticies = new HashMap<>(); 
