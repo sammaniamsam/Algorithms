@@ -5,7 +5,9 @@
  */
 package algorithms.BreadthFirstSearch;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  *
@@ -13,28 +15,30 @@ import java.util.LinkedList;
  */
 public class UndirectedGraph {
     
-    //Keep a queue containing the people to check
-    private final LinkedList<Vertex> queue;
-    
-    public UndirectedGraph(Vertex v) {
-        this.queue = new LinkedList();
-        this.queue.add(v);
-    }
-    
-    public int search(Vertex target) {
+    public static int search(Vertex start, Vertex target) {
+        LinkedList<Vertex> queue = new LinkedList();
+        Map<String, Vertex> searchedVerticies = new HashMap<>(); 
+        queue.add(start);
+        int verticiesOnLevel = queue.size();
         int edges = 0;
-        while (!this.queue.isEmpty()) {
-            Vertex v = this.queue.remove();
-            
+        while (!queue.isEmpty()) {
+            Vertex v = queue.remove();
+            --verticiesOnLevel;
+            searchedVerticies.put(v.getName(), v);
+            if(target.getName().equals(v.getName())) { return edges; }
+            else {
+                for(Vertex vertex: v.getFriends()) {
+                    if(!searchedVerticies.containsKey(vertex.getName())) {
+                        queue.add(vertex);
+                    }
+                }
+                if(verticiesOnLevel <= 0) {
+                    ++edges;
+                    verticiesOnLevel = queue.size();
+                }
+            }
         }
-        return edges;
-        //If this person been searched before
-            //Dequeue person from queue
-        //Check if this person is the person you are looking for
-            //If yes
-                //Done
-            //Else
-                //Enqueue all their friends to the list
+        return -1;
     }
     
 }

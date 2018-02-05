@@ -5,6 +5,7 @@
  */
 
 import algorithms.BinarySearchTest;
+import algorithms.BreadthFirstSearch.UndirectedGraphTest;
 import algorithms.EuclidsAlgorithmTest;
 import algorithms.QuicksortTest;
 import algorithms.SelectionsortTest;
@@ -20,6 +21,7 @@ import org.junit.runners.Suite;
     EuclidsAlgorithmTest.class,
     QuicksortTest.class,
     SelectionsortTest.class,
-    BinarySearchTest.class
+    BinarySearchTest.class,
+    UndirectedGraphTest.class
 })
 public class AlgorithmsTestSuite { }

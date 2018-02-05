@@ -5,6 +5,7 @@
  */
 package algorithms.BreadthFirstSearch;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,9 +17,15 @@ public class Vertex {
     private final String name;
     private final List<Vertex> friends;
     
-    public Vertex (String name, List<Vertex> friends ) {
+    public Vertex (String name) {
         this.name = name;
-        this.friends = friends;
+        this.friends = new LinkedList<>();
+    }
+    
+    public boolean addConnection(Vertex v) {
+        if(this.friends.contains(v)) { return false; }
+        else { this.friends.add(v); }
+        return true;
     }
     
     public String getName() { return this.name; }
