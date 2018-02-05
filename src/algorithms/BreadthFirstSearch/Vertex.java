@@ -15,21 +15,21 @@ import java.util.List;
 public class Vertex {
     
     private final String name;
-    private final List<Vertex> friends;
+    private final List<Vertex> connections;
     
     public Vertex (String name) {
         this.name = name;
-        this.friends = new LinkedList<>();
+        this.connections = new LinkedList<>();
     }
     
     public boolean addConnection(Vertex v) {
-        if(this.friends.contains(v)) { return false; }
-        else { this.friends.add(v); }
+        if(this.connections.contains(v)) { return false; }
+        else { this.connections.add(v); }
         return true;
     }
     
     public String getName() { return this.name; }
     
-    public List<Vertex> getFriends() { return this.friends; }
+    public List<Vertex> getConnections() { return this.connections; }
     
 }

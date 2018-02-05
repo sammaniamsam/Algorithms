@@ -27,7 +27,7 @@ public class UndirectedGraph {
             searchedVerticies.put(v.getName(), v);
             if(target.getName().equals(v.getName())) { return edges; }
             else {
-                for(Vertex vertex: v.getFriends()) {
+                for(Vertex vertex: v.getConnections()) {
                     if(!searchedVerticies.containsKey(vertex.getName())) {
                         queue.add(vertex);
                     }
